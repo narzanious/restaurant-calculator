@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://getbootstrap.com/examples/starter-template/ -->
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="">
+    <title>myCRM</title>
+ 
+  
+    <link href="./css/main.css" rel="stylesheet">
+    <link href="./css/responsive.css" rel="stylesheet" media="screen and (max-width: 900px)">
+
+  </head>
+
+    <body>
+
+      
+      
+      <div class="container" align="center"><!--container-->  
+        <div id="headContainer" align="left">
+          <h3 class="header">The ultimate restaurant calculator</h3>
+        </div>
+
+        <div id="navbar" align="center"><!--navbar-->
+          <ul class="nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contacts</a></li>
+            <li><a href="#">FeedBack</a></li>
+          </ul>
+        </div><!--/navbar-->
+        <div class="container-inner"><!--container-inner-->
+          <div class="bodyContainer">
+            <div id="leftColumn">
+              <h3>Costumer information</h3>
+                <form name="forInfo" action="" method="" autocomplete="off">
+                  <div class="form">
+                    <label for="name">Name
+                      <input type="text" name="name" placeholder="Jane Doe"> 
+                    </label>                 
+                  </div>
+                  <div class="form">
+                    <label for="phone">Telephone
+                      <input type="tel" name="phone" placeholder="1-(555)-555-5555">
+                    </label>
+                  </div>
+                  <div class="form">
+                    <label for="homeAdress">Home address
+                      <input type="text" name="homeAdress" placeholder="Adress">
+                    </label>
+                  </div>       
+                  <div class="form">
+                    <label for="eMail">Email address (optional)
+                      <input type="text" name="eMail" placeholder="Email">
+                    </label>
+                  </div>
+                  <div class="form">
+                    <label for="numberOfPersons">Number of persons
+                      <input type="number" name="numberOfPersons">
+                    </label>
+                  </div>
+                </form>
+            </div><!--leftColumn-->
+            <div id="centerColumn">
+              <h3>Order information</h3>
+              <form name="forSelect" action="" method="" autocomplete="off">
+                <div class="form">
+                  <label for="dishes-select">Select dish
+                    <select id="dishes-select" name="help">   
+                    <option>Select dish</option>
+                  </select>
+                  </label>
+                </div>
+              </form>
+              <ol id="selected-dish-name"></ol>
+              <div id="order-data"></div>
+              <form name="forRemarks" action="" method="" autocomplete="off">
+                <div class="form">
+                  <label for="remarks">Remarks
+                    <input name="remarks" type="text" placeholder="Special remarks">
+                  </label>
+                </div>
+              </form>
+              <button type="submit" id="buttonPersonInfo" value="" onclick="processOrder()">Process order</button>
+            </div><!--centerColumn-->
+            <!-- Modal -->
+            <div id="rightColumn">
+              <h3>Order overview</h3>
+              <div id="modal-3"></div>
+            </div><!--rightColumn-->
+            <div class="clearFloat"></div>
+          </div><!--bodyContainer-->
+        </div><!--/container-inner-->
+        <div id="footer">
+          <div id="footerContainer"></div>
+        </div>
+      </div><!--/container-->
+
+
+      
+      <script src="./js/index.js"></script>
+      <script src="./js/jquery.js"></script>
+    </body>
+</html>

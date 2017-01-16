@@ -1,0 +1,93 @@
+body {
+	background-color: ;
+}
+
+/*navigation*/
+.nav {
+  background-color: #595959;
+  /*padding: 20px 0 20px 0;*/
+  margin: 0;
+}
+
+.nav > li {
+  list-style: none;
+  display: inline-block;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > li > a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav > li > a:hover {
+  color: #c1c1c1;
+}
+
+/*/navigation*/
+
+/*body containers*/
+.bodyContainer {
+  width: 100%;
+}
+
+#leftColumn {
+  width: 100%;
+  float: left;
+}
+
+#centerColumn {
+  width: 100%;
+  float: left;
+}
+
+#rightColumn {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10%;;
+  float: left;
+}
+/*body containers*/
+
+/*forms*/
+input,
+textarea,
+#buttonPersonInfo,
+select
+ {
+  font: 1em Georgia;
+  padding: 10px;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+label,
+textarea,
+input,
+select {
+  display: block;
+  margin-bottom: 2em;
+  margin-top: 1em;
+}
+
+button[data-role="remove-dish"] {
+  width: auto;
+}
+
+input,
+select,
+#buttonPersonInfo {
+  border: 3px solid #555;
+}
+
+input:focus, select:focus,
+input:hover, select:hover {
+  border: 3px solid #555;
+}
+/*forms*/
+#buttonPersonInfo {
+	margin-bottom: 2em;
+}
+
+
