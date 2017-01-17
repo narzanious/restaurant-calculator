@@ -8,7 +8,7 @@ Order.prototype = {
   },
   
   addDish: function(dish) {
-    this.dishes.push(dish);
+    this.dishes.push(dish); 
   },
 
   
@@ -152,26 +152,63 @@ htmlDishesSelect.addEventListener("change", function(e) {
  
   });
 
-            $("order-data").addEventListener("click", function(e) { 
-                if(e.target.getAttribute("data-role") === "remove-dish") {        
-                  var dishName = e.target.getAttribute("data-dish-name");   
-                  order.removeDish(dishName);
-                  order.render("order-data");                      
-                }            
-            });
+  $("order-data").addEventListener("click", function(e) { 
+      if(e.target.getAttribute("data-role") === "remove-dish") {        
+        var dishName = e.target.getAttribute("data-dish-name");   
+        order.removeDish(dishName);
+        order.render("order-data");                      
+      }            
+  });
 
 
 };
   function processOrder() {
-  var a = document.forInfo.name.value;
-  var b = document.forInfo.phone.value;
-  var c = document.forInfo.homeAdress.value;
-  var d = document.forInfo.eMail.value;
-  var e = document.forInfo.numberOfPersons.value;
-  var f = document.forRemarks.remarks.value; 
+    var a = document.forInfo.name.value;
+    var b = document.forInfo.phone.value;
+    var c = document.forInfo.homeAdress.value;
+    var d = document.forInfo.eMail.value;
+    var e = document.forInfo.numberOfPersons.value;
+    var f = document.forRemarks.remarks.value; 
 
-  var customers = new Person(a,b,c,d,e,f);
-  customers.fullName();
+    var customers = new Person(a,b,c,d,e,f);
+
+
+    /*for(var prop in customers){
+      var myProp = customers[a];
+    }*/
+
+    /*
+    for (var prop in customers) {
+      if (customers.hasOwnProperty(prop)) {
+        alert('Свойство - (' + prop + '). Значение: ' + customers[prop]);
+      }
+      else {
+        alert('name'); // toString или что-то ещё
+      }
+    }
+    */
+    /**/
+  for (var prop in customers) {
+    if (customers[prop] !== '') {
+        customers.fullName();
+    } else {
+      alert("Please enter customer information!");
+    }   
+    return false;
+  }
+  
+
+
+  /*
+  for(var i in customers) {
+    if(customers[i].hasOwnProperty("firstName") && customers[i].firstName === "Denis") {
+     customers.fullName();
+    } else {
+      return false;
+    }
+  };
+  */
+
 }
 var $ = function(id) { return document.getElementById(id); };    
 
