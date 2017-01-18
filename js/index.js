@@ -191,7 +191,7 @@ window.onload = function() {
    (customers.eMail !== '') && (customers.personNumber !== '')) {
         customers.fullName();
     } else {
-      alert("Please enter required customer information!");
+      alert("Please enter required customer information!"); 
       return false;
     }   
   
