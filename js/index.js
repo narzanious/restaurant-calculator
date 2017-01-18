@@ -188,10 +188,10 @@ window.onload = function() {
   */
   
   if ((customers.firstName !== '') && (customers.phone !== '') && (customers.homeAdress !== '') &&
-   (customers.eMail !== '') && (customers.personNumber !== '') && (customers.remarks !== '')) {
+   (customers.eMail !== '') && (customers.personNumber !== '')) {
         customers.fullName();
     } else {
-      alert("Please enter customer information!");
+      alert("Please enter required customer information!");
       return false;
     }   
   
