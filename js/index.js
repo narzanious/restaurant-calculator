@@ -3,14 +3,14 @@ var Order = function() {
   this.dishes = [];
 }
 Order.prototype = {
-  totalPrice: function() {
-    return this.dishes.reduce(function(acc, curr) { return acc + curr.price;}, 0).toFixed(2);
-  },
   
   addDish: function(dish) {
     this.dishes.push(dish); 
   },
 
+  totalPrice: function() {
+    return this.dishes.reduce(function(acc, curr) { return acc + curr.price;}, 0).toFixed(2);
+  },
   
   /// Returns a textual representation of all dishes in current order
 
@@ -55,11 +55,12 @@ var Dish = function(name, price) {
 Dish.prototype = {
   formattedPrice: function() {
     return "$" + this.price;
-  },
+  }
+  /*,
 
   renderToHtml: function() {
     return "<li>" +this.name + " " + this.totalPrice + "<button data-dish-name='" + this.name + "' data-role='remove-dish'>&times;</button></li>";
-  }
+  }*/
 };
   
 
@@ -121,7 +122,7 @@ var i;
 var each;
 var li = document.getElementsByClassName('liClass');
 var btn = document.getElementsByClassName('btnClass');
-var selectedDish
+var selectedDish;
 var htmlDishesSelect = document.getElementById("dishes-select");
 
 dishes.forEach(
@@ -135,33 +136,33 @@ dishes.forEach(
 window.onload = function() {
  order.render("order-data");
   
-htmlDishesSelect.addEventListener("change", function(e) {   
-  //e.preventDefault();
-  var dishPrice = parseFloat(e.target.value);
-  var dishNameWithPrice = e.target.options[e.target.selectedIndex].innerText;  
-  var dishName = dishNameWithPrice;
-  //.split(",")[0]
-  // TODO: use new Dish(..) here
-  selectedDish = {name: dishName, price: dishPrice};    
-  order.addDish(selectedDish);
-  this.selectedIndex = 0;
-  order.sortIt();
-  
- 
-  order.render("order-data");
- 
-  });
+  htmlDishesSelect.addEventListener("change", function(e) {   
+    //e.preventDefault();
+    var dishPrice = parseFloat(e.target.value);
+    var dishNameWithPrice = e.target.options[e.target.selectedIndex].innerText;  
+    var dishName = dishNameWithPrice;
+    //.split(",")[0]
+    // TODO: use new Dish(..) here
+    selectedDish = {name: dishName, price: dishPrice};    
+    order.addDish(selectedDish);
+    this.selectedIndex = 0;
+    order.sortIt();
+    
+   
+    order.render("order-data");
+   
+    });
 
-  $("order-data").addEventListener("click", function(e) { 
-      if(e.target.getAttribute("data-role") === "remove-dish") {        
-        var dishName = e.target.getAttribute("data-dish-name");   
-        order.removeDish(dishName);
-        order.render("order-data");                      
-      }            
-  });
-
+    $("order-data").addEventListener("click", function(e) { 
+        if(e.target.getAttribute("data-role") === "remove-dish") {        
+          var dishName = e.target.getAttribute("data-dish-name");   
+          order.removeDish(dishName);
+          order.render("order-data");                      
+        }            
+    });
 
 };
+
   function processOrder() {
     var a = document.forInfo.name.value;
     var b = document.forInfo.phone.value;
@@ -173,31 +174,27 @@ htmlDishesSelect.addEventListener("change", function(e) {
     var customers = new Person(a,b,c,d,e,f);
 
 
-    /*for(var prop in customers){
-      var myProp = customers[a];
-    }*/
-
-    /*
-    for (var prop in customers) {
-      if (customers.hasOwnProperty(prop)) {
-        alert('Свойство - (' + prop + '). Значение: ' + customers[prop]);
-      }
-      else {
-        alert('name'); // toString или что-то ещё
-      }
-    }
-    */
-    /**/
+    
+  /*
   for (var prop in customers) {
     if (customers[prop] !== '') {
         customers.fullName();
     } else {
       alert("Please enter customer information!");
+      return false;
     }   
-    return false;
+    return true;
   }
+  */
   
-
+  if ((customers.firstName !== '') && (customers.phone !== '') && (customers.homeAdress !== '') &&
+   (customers.eMail !== '') && (customers.personNumber !== '') && (customers.remarks !== '')) {
+        customers.fullName();
+    } else {
+      alert("Please enter customer information!");
+      return false;
+    }   
+  
 
   /*
   for(var i in customers) {
