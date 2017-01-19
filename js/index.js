@@ -19,7 +19,9 @@ Order.prototype = {
     return this.dishes.map(function(dish) { return "<li class='liClass'>" +  dish.name + "<button class='btnClass' data-dish-name='" + dish.name + "' data-role='remove-dish'>&times;</button></li>";}, "").join(" ");
   },
 
-
+  sumCheck: function() {
+    return this.dishes.map(function(dish) { return "<li class='liClass2'>" +  dish.name + "</li>";}, "").join(" ");
+  },
 
   //Sorting the array
   sortIt: function() {
@@ -42,8 +44,14 @@ Order.prototype = {
   render: function(containerId) {
     var container = document.getElementById(containerId);
     var dishesHtml = this.summary();
-    var totalPriceHtml = "<h4>Total price: " + this.totalPrice() + "</h4>";
+    var totalPriceHtml = "<h4>Total price: $" + this.totalPrice() + "</h4>";
     return container.innerHTML = "<ol>" + dishesHtml + "</ol>" + totalPriceHtml; 
+  },
+  rendCheck: function(containerId) {
+    var container = document.getElementById(containerId);
+    var dishesHtml = this.sumCheck();
+    var totalPriceHtml = "<h4>Total price: $" + this.totalPrice() + "</h4>";
+    return container.innerHTML = "<ol>" + dishesHtml + "</ol>" + totalPriceHtml + '<button type="submit" id="buttonPersonInfo" value="" onclick="">Send to kitchen</button>';
   }
 };
 
@@ -56,11 +64,7 @@ Dish.prototype = {
   formattedPrice: function() {
     return "$" + this.price;
   }
-  /*,
 
-  renderToHtml: function() {
-    return "<li>" +this.name + " " + this.totalPrice + "<button data-dish-name='" + this.name + "' data-role='remove-dish'>&times;</button></li>";
-  }*/
 };
   
 
@@ -175,36 +179,16 @@ window.onload = function() {
 
 
     
-  /*
-  for (var prop in customers) {
-    if (customers[prop] !== '') {
-        customers.fullName();
-    } else {
-      alert("Please enter customer information!");
-      return false;
-    }   
-    return true;
-  }
-  */
+ 
   
-  if ((customers.firstName !== '') && (customers.phone !== '') && (customers.homeAdress !== '') &&
-   (customers.eMail !== '') && (customers.personNumber !== '')) {
+  if ((customers.firstName !== '') && (customers.phone !== '') && (customers.homeAdress !== '') && (customers.personNumber !== '')) {
         customers.fullName();
     } else {
       alert("Please enter required customer information!"); 
       return false;
     }   
   
-
-  /*
-  for(var i in customers) {
-    if(customers[i].hasOwnProperty("firstName") && customers[i].firstName === "Denis") {
-     customers.fullName();
-    } else {
-      return false;
-    }
-  };
-  */
+  order.rendCheck("modal-4");
 
 }
 var $ = function(id) { return document.getElementById(id); };    

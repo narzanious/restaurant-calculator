@@ -94,3 +94,18 @@ input:hover, select:hover {
   background-color: orange;
 }
 
+.liClass {
+  color: black;
+  text-align: right;
+  padding-right: 2em;
+  font: 1em Georgia;
+
+}
+
+.liClass2 {
+  color: black;
+  text-align: right;
+  font: 0.9em Georgia;
+  padding-left: 0.5em;
+}
+
