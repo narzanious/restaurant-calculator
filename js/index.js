@@ -240,7 +240,7 @@ function isPhoneOk(inputField, helpId) {// See if the input value contains any t
 }
 
 function isEmailOk(inputField, helpId) {// See if the input value contains any text
-    return editNodeText(/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, inputField.value, helpId, "Enter an Email (Ex. derekbanas@newthinktank.com)");
+    return editNodeText(/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, inputField.value, helpId, "Enter an Email (Ex. dff@think.kom)");
 }
 
 
