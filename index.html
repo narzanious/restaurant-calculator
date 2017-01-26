@@ -40,30 +40,39 @@
                 <form name="forInfo" action="" method="" autocomplete="off">
                   <div class="form">
                     <label for="name">Name*
-                      <input type="text" name="name" placeholder="Jane Doe" required> 
-                    </label>                 
+                      <!--<input type="text" name="name" placeholder="Jane Doe">-->
+                      <input id="name" name="name" type="text" size="30" onblur="isTheFieldEmpty(this, document.getElementById('name_help'))" />
+                    </label>
+                    <span id='name_help'></span>
                   </div>
                   <div class="form">
                     <label for="phone">Telephone*
-                      <input type="tel" name="phone" placeholder="1-(555)-555-5555">
+                      <!--<input type="tel" name="phone" placeholder="1-(555)-555-5555" required>-->
+                      <input id="phone" name="phone" type="text" size="15" onblur="isPhoneOk(this, document.getElementById('phone_help'))" />
                     </label>
+                    <span id='phone_help'></span>
                   </div>
                   <div class="form">
                     <label for="homeAdress">Home address*
-                      <input type="text" name="homeAdress" placeholder="Adress">
+                      <!--<input type="text" name="homeAdress" placeholder="Adress" required>-->
+                      <input id="street" name="homeAdress" type="text" size="30" onblur="isAddressOk(this, document.getElementById('street_help'))" />
                     </label>
+                    <span id='street_help'></span>
                   </div>       
                   <div class="form">
                     <label for="eMail">Email address (optional)
-                      <input type="text" name="eMail" placeholder="Email">
+                      <!--<input type="text" name="eMail" placeholder="Email">-->
+                      <input id="email" name="eMail" type="text" size="30" onblur="isEmailOk(this, document.getElementById('email_help'))" />
                     </label>
+                    <span id='email_help'></span>
                   </div>
                   <div class="form">
                     <label for="numberOfPersons">Number of persons*
-                      <input type="number" name="numberOfPersons">
+                      <input type="number" name="numberOfPersons" required>
                     </label>
                   </div>
                   <h5>*Required fields</h5>
+                  <!--<input type="submit">-->
                 </form>
             </div><!--leftColumn-->
             <div id="centerColumn">
@@ -86,7 +95,8 @@
                   </label>
                 </div>
               </form>
-              <button type="submit" id="buttonPersonInfo" value="" onclick="processOrder()">Process order</button>
+              <!--<button type="submit" id="buttonPersonInfo" value="" onclick="processOrder()">Process order</button>-->
+              <button type="submit" id="buttonPersonInfo" value="">Process order</button>
             </div><!--centerColumn-->
             <!-- Modal -->
             <div id="rightColumn">
@@ -94,8 +104,8 @@
               <div id="modal-3"></div>
               <div id="modal-4"></div>
             </div><!--rightColumn-->
-            <div class="clearFloat"></div>
-          </div><!--bodyContainer-->
+            <div class="clearFloat"></div> 
+          </div><!--bodyContainer-->  
         </div><!--/container-inner-->
         <div id="footer">
           <div id="footerContainer"></div>

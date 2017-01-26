@@ -51,7 +51,8 @@ Order.prototype = {
     var container = document.getElementById(containerId);
     var dishesHtml = this.sumCheck();
     var totalPriceHtml = "<h4>Total price: $" + this.totalPrice() + "</h4>";
-    return container.innerHTML = "<ol>" + dishesHtml + "</ol>" + totalPriceHtml + '<button type="submit" id="buttonPersonInfo" value="" onclick="">Send to kitchen</button>';
+    //var fullName = this.fullName();
+    return container.innerHTML = "<ol>" + dishesHtml + "</ol>" + totalPriceHtml;
   }
 };
 
@@ -68,8 +69,6 @@ Dish.prototype = {
 };
   
 
-
-
 //Person begin
 var Person = function(firstName, phone, homeAdress, eMail, personNumber, remarks) { 
   this.firstName = firstName;
@@ -81,17 +80,28 @@ var Person = function(firstName, phone, homeAdress, eMail, personNumber, remarks
 };
 
 Person.prototype = {
-  fullName: function() {
-  $('modal-3').innerHTML = 
-    '</br><div>First name: ' + this.firstName + '</br>' + 
-    'Telephone: ' + this.phone + '</br>'+ 
-    'Home adress: ' + this.homeAdress + '</br>' + 
-    'Email adress: ' + this.eMail + '</br>' + 
-    'Number of persons: ' + this.personNumber + '</br>' +
-    'Remarks: <u>' + this.remarks + '</u></div>';
+  renderPerson: function(containerId) {
+    var container = document.getElementById(containerId);
+    var nameHtml = this.firstName;
+    var phoneHtml = this.phone;
+    var addressHtml = this.homeAdress;
+    var emailHtml = this.eMail;
+    var qntHtml = this.personNumber;
+    var remarksHtml = this.remarks;
+    return container.innerHTML = 
+    "</br><div>First name: " + nameHtml + "</br>" + 
+    "Telephone: " + phoneHtml + "</br>"+ 
+    "Home address: " + addressHtml + "</br>" + 
+    "Email adress: " + emailHtml + "</br>" + 
+    "Number of persons: " + qntHtml + "</br>" +
+    "Remarks: " + remarksHtml + "</div>";
   }
 };
 //Person ended
+
+
+
+
 var dishes = [
   new Dish("Quattro stagioni", 2),
   new Dish("Alla marinara", 3),
@@ -166,31 +176,74 @@ window.onload = function() {
     });
 
 };
-
-  function processOrder() {
+  /*
+  var processOrder = function() {
     var a = document.forInfo.name.value;
     var b = document.forInfo.phone.value;
     var c = document.forInfo.homeAdress.value;
     var d = document.forInfo.eMail.value;
     var e = document.forInfo.numberOfPersons.value;
     var f = document.forRemarks.remarks.value; 
-
     var customers = new Person(a,b,c,d,e,f);
-
-
+    customers.renderPerson("modal-3");
+    order.rendCheck("modal-4");
+  }
+  */
     
- 
-  
-  if ((customers.firstName !== '') && (customers.phone !== '') && (customers.homeAdress !== '') && (customers.personNumber !== '')) {
-        customers.fullName();
-    } else {
-      alert("Please enter required customer information!"); 
-      return false;
-    }   
-  
-  order.rendCheck("modal-4");
 
+
+function editNodeText(regex, input, helpId, helpMessage) {// See if the visitor entered the right information
+  if (!regex.test(input)) {          // If the wrong information was entered, warn them
+    if (helpId != null) 
+      while (helpId.firstChild) { // Remove any warnings that may exist
+        helpId.removeChild(helpId.firstChild);
+      }
+    helpId.appendChild(document.createTextNode(helpMessage)); // Add new warning
+  return false;
+  } else {          // If the right information was entered, clear the help message
+    if (helpId != null) {
+      while (helpId.firstChild) { // Remove any warnings that may exist 
+        helpId.removeChild(helpId.firstChild);
+      }
+      var a = document.forInfo.name.value;
+      var b = document.forInfo.phone.value;
+      var c = document.forInfo.homeAdress.value;
+      var d = document.forInfo.eMail.value;
+      var e = document.forInfo.numberOfPersons.value;
+      var f = document.forRemarks.remarks.value; 
+      var customers = new Person(a,b,c,d,e,f);
+      customers.renderPerson("modal-3");
+      order.rendCheck("modal-4");
+    return true
+      }
+   }   
 }
+
+function isTheFieldEmpty(inputField, helpId) {// inputField – ID Number for the html text box
+// helpId – ID Number for the child node I want to print a warning in
+// See if the input value contains any text
+    return editNodeText(/^[A-Za-z\.\' \-]{2,15}\s?[A-Za-z\.\' \-]{2,15}\s?[A-Za-z\.\' \-]{2,15}/, inputField.value, helpId, "Please enter a valid name.");
+}// inputField.value – Value typed in the html text box
+
+
+function isAddressOk(inputField, helpId) {// See if the input value contains any text
+    return editNodeText(/^[A-Za-z0-9\.\' \-]{5,30}$/, inputField.value, helpId, "Enter a Street (Ex.1234 Main St.)");
+}
+
+function isStateOk(inputField, helpId) {// See if the input value contains any text
+    return editNodeText(/^A[LKSZRAEP]|C[AOT]|D[EC]|F[LM]|G[AU]|HI|I[ADLN]|K[SY]|LA|M[ADEHINOPST]|N[CDEHJMVY]|O[HKR]|P[ARW]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]$/,
+    inputField.value, helpId, "Enter a State Code in Uppercase (Ex.NY, PA, CA)");
+}
+
+function isPhoneOk(inputField, helpId) {// See if the input value contains any text
+    return editNodeText(/^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$/, inputField.value, helpId, "Enter a Phone Number (Ex.412-828-3000)");
+}
+
+function isEmailOk(inputField, helpId) {// See if the input value contains any text
+    return editNodeText(/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, inputField.value, helpId, "Enter an Email (Ex. derekbanas@newthinktank.com)");
+}
+
+
 var $ = function(id) { return document.getElementById(id); };    
 
 
@@ -198,6 +251,48 @@ var $ = function(id) { return document.getElementById(id); };
 
 
 
+ /*
+  if ((customers.firstName !== '') && (customers.phone !== '') && (customers.homeAdress !== '') && (customers.personNumber !== '')) {
+        customers.fullName();
+    } else {
+      alert("Please enter required customer information!"); 
+      return false;
+    }   
+  */
+
+
+
+/*
+$("buttonPersonInfo").addEventListener("click", function() { 
+  if(editNodeText() === true) {        
+    var a = document.forInfo.name.value;
+    var b = document.forInfo.phone.value;
+    var c = document.forInfo.homeAdress.value;
+    var d = document.forInfo.eMail.value;
+    var e = document.forInfo.numberOfPersons.value;
+    var f = document.forRemarks.remarks.value; 
+    var customers = new Person(a,b,c,d,e,f);
+    customers.renderPerson("modal-3");
+    order.rendCheck("modal-4");                     
+  }            
+});
+*/
+
+
+
+    /*
+    var processOrder = function() {
+      var a = document.forInfo.name.value;
+      var b = document.forInfo.phone.value;
+      var c = document.forInfo.homeAdress.value;
+      var d = document.forInfo.eMail.value;
+      var e = document.forInfo.numberOfPersons.value;
+      var f = document.forRemarks.remarks.value; 
+      var customers = new Person(a,b,c,d,e,f);
+      customers.renderPerson("modal-3");
+      order.rendCheck("modal-4");
+    }
+    */
 
 
 
@@ -208,12 +303,7 @@ var $ = function(id) { return document.getElementById(id); };
 
 
 
-
-
-
-
-
-
+var $ = function(id) { return document.getElementById(id); };  
 
 
 
