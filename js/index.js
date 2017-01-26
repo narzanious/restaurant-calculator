@@ -222,7 +222,7 @@ function editNodeText(regex, input, helpId, helpMessage) {// See if the visitor 
 function isTheFieldEmpty(inputField, helpId) {// inputField – ID Number for the html text box
 // helpId – ID Number for the child node I want to print a warning in
 // See if the input value contains any text
-    return editNodeText(/^[A-Za-z\.\' \-]{2,15}\s?[A-Za-z\.\' \-]{2,15}\s?[A-Za-z\.\' \-]{2,15}/, inputField.value, helpId, "Please enter a valid name.");
+    return editNodeText(/^[A-Za-z\.\' \-]{2,15}\s?[A-Za-z\.\' \-]{2,15}\s?[A-Za-z\.\' \-]{2,15}/, inputField.value, helpId, "Please enter a valid first and last name.");
 }// inputField.value – Value typed in the html text box
 
 
