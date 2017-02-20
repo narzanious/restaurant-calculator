@@ -5,7 +5,7 @@ var Order = function() {
 Order.prototype = {
   
   addDish: function(dish) {
-    this.dishes.push(dish); 
+    this.dishes.push(dish);   
   },
 
   totalPrice: function() {
@@ -94,7 +94,7 @@ Person.prototype = {
     "Home address: " + addressHtml + "</br>" + 
     "Email adress: " + emailHtml + "</br>" + 
     "Number of persons: " + qntHtml + "</br>" +
-    "Remarks: " + remarksHtml + "</div>";
+    "Remarks: <u>" + remarksHtml + "</u></div>";
   }
 };
 //Person ended
@@ -151,19 +151,20 @@ window.onload = function() {
  order.render("order-data");
   
   htmlDishesSelect.addEventListener("change", function(e) {   
-    //e.preventDefault();
-    var dishPrice = parseFloat(e.target.value);
-    var dishNameWithPrice = e.target.options[e.target.selectedIndex].innerText;  
-    var dishName = dishNameWithPrice;
+    e.preventDefault();  
+    var dishName = e.target.options[e.target.selectedIndex].innerText; 
     //.split(",")[0]
+    var dishPrice = parseFloat(e.target.value); 
+    
     // TODO: use new Dish(..) here
-    selectedDish = {name: dishName, price: dishPrice};    
+    var selectedDish = {name: dishName, price: dishPrice};    
     order.addDish(selectedDish);
     this.selectedIndex = 0;
     order.sortIt();
     
    
     order.render("order-data");
+    order.rendCheck("modal-4");
    
     });
 
@@ -171,25 +172,13 @@ window.onload = function() {
         if(e.target.getAttribute("data-role") === "remove-dish") {        
           var dishName = e.target.getAttribute("data-dish-name");   
           order.removeDish(dishName);
-          order.render("order-data");                      
+          order.render("order-data");   
+          order.rendCheck("modal-4");                   
         }            
     });
 
 };
-  /*
-  var processOrder = function() {
-    var a = document.forInfo.name.value;
-    var b = document.forInfo.phone.value;
-    var c = document.forInfo.homeAdress.value;
-    var d = document.forInfo.eMail.value;
-    var e = document.forInfo.numberOfPersons.value;
-    var f = document.forRemarks.remarks.value; 
-    var customers = new Person(a,b,c,d,e,f);
-    customers.renderPerson("modal-3");
-    order.rendCheck("modal-4");
-  }
-  */
-    
+
 
 
 function editNodeText(regex, input, helpId, helpMessage) {// See if the visitor entered the right information
@@ -210,10 +199,9 @@ function editNodeText(regex, input, helpId, helpMessage) {// See if the visitor 
       var c = document.forInfo.homeAdress.value;
       var d = document.forInfo.eMail.value;
       var e = document.forInfo.numberOfPersons.value;
-      var f = document.forRemarks.remarks.value; 
+      var f = document.forInfo.remarks.value; 
       var customers = new Person(a,b,c,d,e,f);
       customers.renderPerson("modal-3");
-      order.rendCheck("modal-4");
     return true
       }
    }   
@@ -230,80 +218,37 @@ function isAddressOk(inputField, helpId) {// See if the input value contains any
     return editNodeText(/^[A-Za-z0-9\.\' \-]{5,30}$/, inputField.value, helpId, "Enter a Street (Ex.1234 Main St.)");
 }
 
-function isStateOk(inputField, helpId) {// See if the input value contains any text
-    return editNodeText(/^A[LKSZRAEP]|C[AOT]|D[EC]|F[LM]|G[AU]|HI|I[ADLN]|K[SY]|LA|M[ADEHINOPST]|N[CDEHJMVY]|O[HKR]|P[ARW]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]$/,
-    inputField.value, helpId, "Enter a State Code in Uppercase (Ex.NY, PA, CA)");
-}
-
 function isPhoneOk(inputField, helpId) {// See if the input value contains any text
     return editNodeText(/^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$/, inputField.value, helpId, "Enter a Phone Number (Ex.412-828-3000)");
 }
 
 function isEmailOk(inputField, helpId) {// See if the input value contains any text
-    return editNodeText(/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, inputField.value, helpId, "Enter an Email (Ex. dff@think.kom)");
+    return editNodeText(/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, inputField.value, helpId, "Enter an Email (Ex. hru@hru.hru)");
 }
+
+function isQntOk(inputField, helpId) {// See if the input value contains any text
+    return editNodeText(/^[1-9][0-9]?$|^100$/, inputField.value, helpId, "Enter quantity of customenrs");
+}
+
+function isRemarksOk(inputField, helpId) {// See if the input value contains any text
+    return editNodeText(/^[A-Za-z0-9\.\' \-]{5,30}$/, inputField.value, helpId, "Enter order remark");
+}
+
+
+/*  
+  if ((customers.firstName !== '') && (customers.phone !== '') && (customers.homeAdress !== '') && 
+  (customers.personNumber !== '') && (customers.eMail !== '') && (customers.remarks !== '')) {
+        order.rendCheck("modal-4");
+  } 
+*/
+
+
 
 
 var $ = function(id) { return document.getElementById(id); };    
 
 
 
-
-
-
- /*
-  if ((customers.firstName !== '') && (customers.phone !== '') && (customers.homeAdress !== '') && (customers.personNumber !== '')) {
-        customers.fullName();
-    } else {
-      alert("Please enter required customer information!"); 
-      return false;
-    }   
-  */
-
-
-
-/*
-$("buttonPersonInfo").addEventListener("click", function() { 
-  if(editNodeText() === true) {        
-    var a = document.forInfo.name.value;
-    var b = document.forInfo.phone.value;
-    var c = document.forInfo.homeAdress.value;
-    var d = document.forInfo.eMail.value;
-    var e = document.forInfo.numberOfPersons.value;
-    var f = document.forRemarks.remarks.value; 
-    var customers = new Person(a,b,c,d,e,f);
-    customers.renderPerson("modal-3");
-    order.rendCheck("modal-4");                     
-  }            
-});
-*/
-
-
-
-    /*
-    var processOrder = function() {
-      var a = document.forInfo.name.value;
-      var b = document.forInfo.phone.value;
-      var c = document.forInfo.homeAdress.value;
-      var d = document.forInfo.eMail.value;
-      var e = document.forInfo.numberOfPersons.value;
-      var f = document.forRemarks.remarks.value; 
-      var customers = new Person(a,b,c,d,e,f);
-      customers.renderPerson("modal-3");
-      order.rendCheck("modal-4");
-    }
-    */
-
-
-
-
-
-
-
-
-
-
-var $ = function(id) { return document.getElementById(id); };  
 
 
 

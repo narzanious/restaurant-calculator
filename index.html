@@ -16,101 +16,97 @@
 
   </head>
 
-    <body>
-
-      
-      
-      <div class="container" align="center"><!--container-->  
-        <div id="headContainer" align="left">
-          <h3 class="header">The ultimate restaurant calculator</h3>
+    <body> 
+      <div id="navbar" align="center"><!--navbar-->
+        <div id="logo" align="left">
+          <h1>Restaurant calculator</h1>
         </div>
+        <ul class="nav-panel">
+          <li><a href="#">For</a></li>
+          <li><a href="#">Code</a></li>
+          <li><a href="#">Demo</a></li>
+        </ul>
+      </div><!--/navbar-->
 
-        <div id="navbar" align="center"><!--navbar-->
-          <ul class="nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Contacts</a></li>
-            <li><a href="#">FeedBack</a></li>
-          </ul>
-        </div><!--/navbar-->
-        <div class="container-inner"><!--container-inner-->
-          <div class="bodyContainer">
-            <div id="leftColumn">
-              <h3>Costumer information</h3>
-                <form name="forInfo" action="" method="" autocomplete="off">
-                  <div class="form">
-                    <label for="name">Name*
-                      <!--<input type="text" name="name" placeholder="Jane Doe">-->
-                      <input id="name" name="name" type="text" size="30" onblur="isTheFieldEmpty(this, document.getElementById('name_help'))" />
-                    </label>
-                    <span id='name_help'></span>
-                  </div>
-                  <div class="form">
-                    <label for="phone">Telephone*
-                      <!--<input type="tel" name="phone" placeholder="1-(555)-555-5555" required>-->
-                      <input id="phone" name="phone" type="text" size="15" onblur="isPhoneOk(this, document.getElementById('phone_help'))" />
-                    </label>
-                    <span id='phone_help'></span>
-                  </div>
-                  <div class="form">
-                    <label for="homeAdress">Home address*
-                      <!--<input type="text" name="homeAdress" placeholder="Adress" required>-->
-                      <input id="street" name="homeAdress" type="text" size="30" onblur="isAddressOk(this, document.getElementById('street_help'))" />
-                    </label>
-                    <span id='street_help'></span>
-                  </div>       
-                  <div class="form">
-                    <label for="eMail">Email address (optional)
-                      <!--<input type="text" name="eMail" placeholder="Email">-->
-                      <input id="email" name="eMail" type="text" size="30" onblur="isEmailOk(this, document.getElementById('email_help'))" />
-                    </label>
-                    <span id='email_help'></span>
-                  </div>
-                  <div class="form">
-                    <label for="numberOfPersons">Number of persons*
-                      <input type="number" name="numberOfPersons" required>
-                    </label>
-                  </div>
-                  <h5>*Required fields</h5>
-                  <!--<input type="submit">-->
-                </form>
-            </div><!--leftColumn-->
-            <div id="centerColumn">
-              <h3>Order information</h3>
-              <form name="forSelect" action="" method="" autocomplete="off">
-                <div class="form">
-                  <label for="dishes-select">Select dish
-                    <select id="dishes-select" name="help">   
-                    <option>Select dish</option>
-                  </select>
-                  </label>
-                </div>
-              </form>
-              <ol id="selected-dish-name"></ol>
-              <div id="order-data"></div>
-              <form name="forRemarks" action="" method="" autocomplete="off">
-                <div class="form">
-                  <label for="remarks">Remarks
-                    <input name="remarks" type="text" placeholder="Special remarks">
-                  </label>
-                </div>
-              </form>
-              <!--<button type="submit" id="buttonPersonInfo" value="" onclick="processOrder()">Process order</button>-->
-              <button type="submit" id="buttonPersonInfo" value="">Process order</button>
-            </div><!--centerColumn-->
-            <!-- Modal -->
-            <div id="rightColumn">
-              <h3>Order overview</h3>
+      <div class="container"><!--container-->
+        <div class="container-inner">
+          <div id="leftColumn">
+            <h3>Customer information</h3>
+            <form name="forInfo" action="" method="" autocomplete="on">
+              <div class="form">
+                <label for="name">Name*
+                  <!--<input type="text" name="name" placeholder="Jane Doe">-->
+                  <input id="name" name="name" type="text" size="30" onblur="isTheFieldEmpty(this, document.getElementById('name_help'))" />
+                </label>
+                <span id='name_help'></span>
+              </div>
+              <div class="form">
+                <label for="phone">Telephone*
+                  <!--<input type="tel" name="phone" placeholder="1-(555)-555-5555" required>-->
+                  <input id="phone" name="phone" type="text" size="15" onblur="isPhoneOk(this, document.getElementById('phone_help'))" />
+                </label>
+                <span id='phone_help'></span>
+              </div>
+              <div class="form">
+                <label for="homeAdress">Home address*
+                  <!--<input type="text" name="homeAdress" placeholder="Adress" required>-->
+                  <input id="street" name="homeAdress" type="text" size="30" onblur="isAddressOk(this, document.getElementById('street_help'))" />
+                </label>
+                <span id='street_help'></span>
+              </div>       
+              <div class="form">
+                <label for="eMail">Email address*
+                  <!--<input type="text" name="eMail" placeholder="Email">-->
+                  <input id="email" name="eMail" type="text" size="30" onblur="isEmailOk(this, document.getElementById('email_help'))" />
+                </label>
+                <span id='email_help'></span>
+              </div>
+              <div class="form">
+                <label for="numberOfPersons">Number of persons*
+                  <input type="number" name="numberOfPersons" type="text" size="30" onblur="isQntOk(this, document.getElementById('qnt_help'))" />
+                </label>
+                <span id='qnt_help'></span>
+              </div>
+              <div class="form">
+                <label for="remarks">Remarks*
+                  <input name="remarks" type="text" type="text" size="30" onblur="isRemarksOk(this, document.getElementById('remarks_help'))" />
+                </label>
+                <span id='remarks_help'></span>
+              </div>
+              <h5>*Required fields</h5>
+            </form>
+          </div><!--/leftColumn-->
+
+          <div id="centerColumn">
+            <h3>Order information</h3>
+            <form name="forSelect" action="" method="" autocomplete="off">
+              <div>
+                <label for="dishes-select">Select dish
+                  <select id="dishes-select" name="help">   
+                  <option>Select dish</option>
+                </select>
+                </label>
+              </div>
+            </form>
+            <ol id="selected-dish-name"></ol>
+            <div id="order-data"></div>
+          </div><!--/centerColumn-->
+
+          <div id="rightColumn">
+            <h3>Order overview</h3>
+            <div class="rightColumn-inner">
               <div id="modal-3"></div>
               <div id="modal-4"></div>
-            </div><!--rightColumn-->
-            <div class="clearFloat"></div> 
-          </div><!--bodyContainer-->  
-        </div><!--/container-inner-->
-        <div id="footer">
-          <div id="footerContainer"></div>
-        </div>
+            </div><!--/rightColumn-inner-->
+          </div><!--/rightColumn-->
+
+        </div><!--container-inner-->  
       </div><!--/container-->
+
+
+      <div id="footer">
+        <div id="footerContainer"></div>
+      </div>
 
 
       
