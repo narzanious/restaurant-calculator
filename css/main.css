@@ -55,12 +55,6 @@ h3 {
 }
 
 
-.container-inner {
-  margin: 0 auto;
-  width: 1200px;
-  padding-top: 50px;
-}
-
 /*-/container-*/
 
 /*-leftColumn-*/
@@ -72,24 +66,26 @@ h3 {
   margin: 0;
 }
 
+#leftColumn form {
+  width: 280px;
+  margin: 0 auto;
+}
+
 #leftColumn  h5 {
   clear: both;
 }
 
 #leftColumn .form {
   float: left;
-  display: inline-block;
-  width: 160px;
+  display: block;
+  width: 280px;
+  height: 120px;
 }
 
 #leftColumn {
   width: 
 }
 
-.form {
-  margin: 10px 10px 10px 10px;
-  height: 100px;
-}
 
 /*-/leftColumn-*/
 
@@ -105,7 +101,11 @@ h3 {
 #centerColumn form div {
   width: 250px;
   margin: 0 auto;
-  margin-top: 30px;
+}
+
+#centerColumn form div label {
+  position: relative;
+  right: 15px;
 }
 
 #order-data {
@@ -131,7 +131,8 @@ h3 {
 }
 
 .rightColumn-inner {
-  /*border: 1px solid black;*/
+  padding-bottom: 10px;
+
 }
 
 /*-/rightColumn-*/
@@ -155,21 +156,18 @@ h3 {
 
 input {
   font: 1em Georgia;
-  padding: 7px;
-  width: 160px;
-  height: 25px;
+  width: 280px;
+  height: 43px;
 }
 
 input:focus, select:focus,
 input:hover, select:hover {
   border: 3px solid #555;
-  width: 158px;
-  height: 23px;
 }
 
 #dishes-select {
   font: 1em Georgia;
-  width: 200px;
+  width: 280px;
   height: 43px;
 }
 
@@ -181,24 +179,47 @@ input:hover, select:hover {
   margin-bottom: 3px;
   padding-top: 10px;
   padding-right: 5px;
-  color: ;
 }
 
 .liClass button {
   margin-left: 5px;
 }
 
-#modal-3 {
-
-}
-
-#modal-4 {
-
+#modal-3 div {
+  padding-left: 23px;
+  padding-right: 15px;
 }
 
 #modal-4 h4 {
   text-align: center;
 }
+
+span {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+#modal-4 ol {
+  width: 250px;
+  margin-top: 40px;
+}
+
+#modal-4 ol li {
+  text-align: right;
+}
+
+#modal-4 h4 {
+  width: 290px;
+  text-align: right;
+}
+
+/*
+button[data-role="remove-dish"] {
+  width: auto;
+}
+*/
+
+
 
 
 

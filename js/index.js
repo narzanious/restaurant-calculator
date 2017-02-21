@@ -210,12 +210,12 @@ function editNodeText(regex, input, helpId, helpMessage) {// See if the visitor 
 function isTheFieldEmpty(inputField, helpId) {// inputField – ID Number for the html text box
 // helpId – ID Number for the child node I want to print a warning in
 // See if the input value contains any text
-    return editNodeText(/^[A-Za-z\.\' \-]{2,15}\s?[A-Za-z\.\' \-]{2,15}\s?[A-Za-z\.\' \-]{2,15}/, inputField.value, helpId, "Please enter a valid first and last name.");
+    return editNodeText(/^[а-яА-ЯёЁA-Za-z\.\' \-]{2,15}\s?[а-яА-ЯёЁA-Za-z\.\' \-]{2,15}\s?[а-яА-ЯёЁA-Za-z\.\' \-]{2,15}/, inputField.value, helpId, "Please enter a valid first and last name.");
 }// inputField.value – Value typed in the html text box
 
 
 function isAddressOk(inputField, helpId) {// See if the input value contains any text
-    return editNodeText(/^[A-Za-z0-9\.\' \-]{5,30}$/, inputField.value, helpId, "Enter a Street (Ex.1234 Main St.)");
+    return editNodeText(/^[а-яА-ЯёЁA-Za-z0-9\.\' \-]{5,80}$/, inputField.value, helpId, "Enter a Street (Ex.1234 Main St.)");
 }
 
 function isPhoneOk(inputField, helpId) {// See if the input value contains any text
@@ -223,7 +223,7 @@ function isPhoneOk(inputField, helpId) {// See if the input value contains any t
 }
 
 function isEmailOk(inputField, helpId) {// See if the input value contains any text
-    return editNodeText(/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, inputField.value, helpId, "Enter an Email (Ex. hru@hru.hru)");
+    return editNodeText(/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, inputField.value, helpId, "Enter an Email (Ex. example@hru.hru)");
 }
 
 function isQntOk(inputField, helpId) {// See if the input value contains any text
@@ -231,7 +231,7 @@ function isQntOk(inputField, helpId) {// See if the input value contains any tex
 }
 
 function isRemarksOk(inputField, helpId) {// See if the input value contains any text
-    return editNodeText(/^[A-Za-z0-9\.\' \-]{5,30}$/, inputField.value, helpId, "Enter order remark");
+    return editNodeText(/^[а-яА-ЯёЁA-Za-z0-9\.\' \-]{5,50}$/, inputField.value, helpId, "Enter order remark");
 }
 
 
@@ -241,6 +241,41 @@ function isRemarksOk(inputField, helpId) {// See if the input value contains any
         order.rendCheck("modal-4");
   } 
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
