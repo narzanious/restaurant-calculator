@@ -1,0 +1,122 @@
+/*-two-*/
+
+#two {
+  width: 600px;
+  min-height: 550px;
+  margin: 0 auto;
+  box-shadow: 0px 3px 5px 0 rgba(174,174,174,0.5);
+  background-color: #fff;
+}
+
+.two-inner {
+  width: 362px;
+  min-height: 487px;
+  padding: 35px 44px 40px 44px;
+  margin: 0 auto;
+}
+
+.two-head {
+  width: 362px;
+  height: 102px;
+  padding-bottom: 18px;
+}
+
+.two-head p {
+  text-align: center;
+}
+
+#order-data {
+  width: 359px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#order-data ul {
+  padding: 0;
+  list-style-type:none;
+  margin: 0 auto;
+}
+
+#two .field {
+  width: 362px;
+  height: 37px;
+  margin-top: 20px;
+}
+
+#dishes-select {
+  width: 362px;
+  height: 37px;
+  padding: 7px 10px 6px 10px;
+  font-size: 15px;
+}
+
+.liClass {
+  text-align: right;
+  background-color: #FF9966;
+  width: 347px;
+  height: 25px;
+  border: 3px solid red;
+  margin-bottom: 3px;
+  padding-top: 10px;
+  padding-right: 5px;
+}
+
+.liClass button {
+  margin-left: ;
+}
+
+.button {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 362px;
+}
+
+.button button {
+  width: 362px;
+  color: #fff;
+  background-color: #A4C639;
+  font-size: 14px;
+  font-weight: bold;
+  height: 36px;
+  padding: 0 13px;
+  border: 0;
+}
+
+.button button:hover {
+  color: #A4C639;
+  background-color: transparent;
+  border: 3px solid #00AD43;
+}
+
+.btnClass {
+  position: relative;
+  margin-left: 5px;
+  bottom: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-/two-*/
+
+
+
+
+
+
+
+
+
+
+
+

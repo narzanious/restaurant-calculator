@@ -1,0 +1,44 @@
+/*-three-*/
+
+#three {
+  width: 400px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.three-inner {
+  padding-bottom: 10px;
+
+}
+
+/*-/three-*/
+
+#modal-3 div {
+  padding-left: 23px;
+  padding-right: 15px;
+}
+
+#modal-4 h4 {
+  text-align: center;
+}
+
+
+#modal-4 ol {
+  width: 250px;
+  margin-top: 40px;
+}
+
+#modal-4 ol li {
+  text-align: right;
+}
+
+#modal-4 h4 {
+  width: 290px;
+  text-align: right;
+}
+
+/*
+button[data-role="remove-dish"] {
+  width: auto;
+}
+*/

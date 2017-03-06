@@ -45,7 +45,7 @@ Order.prototype = {
     var container = document.getElementById(containerId);
     var dishesHtml = this.summary();
     var totalPriceHtml = "<h4>Total price: $" + this.totalPrice() + "</h4>";
-    return container.innerHTML = "<ol>" + dishesHtml + "</ol>" + totalPriceHtml; 
+    return container.innerHTML = "<ul>" + dishesHtml + "</ul>" + totalPriceHtml; 
   },
   rendCheck: function(containerId) {
     var container = document.getElementById(containerId);
@@ -210,7 +210,7 @@ function editNodeText(regex, input, helpId, helpMessage) {// See if the visitor 
 function isTheFieldEmpty(inputField, helpId) {// inputField – ID Number for the html text box
 // helpId – ID Number for the child node I want to print a warning in
 // See if the input value contains any text
-    return editNodeText(/^[а-яА-ЯёЁA-Za-z\.\' \-]{2,15}\s?[а-яА-ЯёЁA-Za-z\.\' \-]{2,15}\s?[а-яА-ЯёЁA-Za-z\.\' \-]{2,15}/, inputField.value, helpId, "Please enter a valid first and last name.");
+    return editNodeText(/^[а-яА-ЯёЁA-Za-z\.\' \-]{2,15}\s?[а-яА-ЯёЁA-Za-z\.\' \-]{2,15}\s?[а-яА-ЯёЁA-Za-z\.\' \-]{2,15}/, inputField.value, helpId, "Please enter valid first and last name");
 }// inputField.value – Value typed in the html text box
 
 

@@ -1,0 +1,34 @@
+/*-navbar-*/
+
+#navbar {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#logo h1 {
+  padding: 20px 0 20px 15px;
+  margin: 0;
+  color: #595959;
+}
+
+.nav-panel {
+  background-color: #A3C1AD;
+  margin: 0;
+}
+
+.nav-panel > li {
+  list-style: none;
+  display: inline-block;
+  padding: 20px 100px 20px 100px;
+}
+
+.nav-panel > li > a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-panel > li > a:hover {
+  color: #c1c1c1;
+}
+
+/*-/navbar-*/

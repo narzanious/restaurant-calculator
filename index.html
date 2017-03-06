@@ -29,76 +29,83 @@
       </div><!--/navbar-->
 
       <div class="container"><!--container-->
+        <div class="space"></div>
         <div class="container-inner">
-          <div id="leftColumn">
-            <h3>Customer information</h3>
-            <form name="forInfo" action="" method="" autocomplete="on">
-              <div class="form">
-                <label for="name">Name*
-                  <!--<input type="text" name="name" placeholder="Jane Doe">-->
-                  <input id="name" name="name" type="text" size="30" onblur="isTheFieldEmpty(this, document.getElementById('name_help'))" />
-                </label>
-                <span id='name_help'></span>
-              </div>
-              <div class="form">
-                <label for="phone">Telephone*
-                  <!--<input type="tel" name="phone" placeholder="1-(555)-555-5555" required>-->
-                  <input id="phone" name="phone" type="text" size="15" onblur="isPhoneOk(this, document.getElementById('phone_help'))" />
-                </label>
-                <span id='phone_help'></span>
-              </div>
-              <div class="form">
-                <label for="homeAdress">Home address*
-                  <!--<input type="text" name="homeAdress" placeholder="Adress" required>-->
-                  <input id="street" name="homeAdress" type="text" size="30" onblur="isAddressOk(this, document.getElementById('street_help'))" />
-                </label>
-                <span id='street_help'></span>
-              </div>       
-              <div class="form">
-                <label for="eMail">Email address*
-                  <!--<input type="text" name="eMail" placeholder="Email">-->
-                  <input id="email" name="eMail" type="text" size="30" onblur="isEmailOk(this, document.getElementById('email_help'))" />
-                </label>
-                <span id='email_help'></span>
-              </div>
-              <div class="form">
-                <label for="numberOfPersons">Number of persons*
-                  <input type="number" name="numberOfPersons" type="text" size="30" onblur="isQntOk(this, document.getElementById('qnt_help'))" />
-                </label>
-                <span id='qnt_help'></span>
-              </div>
-              <div class="form">
-                <label for="remarks">Remarks*
-                  <input name="remarks" type="text" type="text" size="30" onblur="isRemarksOk(this, document.getElementById('remarks_help'))" />
-                </label>
-                <span id='remarks_help'></span>
-              </div>
-              <h5>*Required fields</h5>
-            </form>
-          </div><!--/leftColumn-->
+          <section id="one">
+            <div class="one-inner">
+              <div class="one-head">
+                <h3>Customer information</h3>
+                <hr>
+                <p>All fields required</p>
+              </div><!--/one-head-->
+              <form name="forInfo" action="" method="" autocomplete="on">
+                <div class="fields-group-left">
+                  <div class="field">
+                    <!--<input type="text" name="name" placeholder="Jane Doe">-->
+                    <input id="name" name="name" type="text" size="30" onblur="isTheFieldEmpty(this,document.getElementById('name_help'))" placeholder="First and last name"/>
+                    <span id='name_help'></span>
+                  </div>
+                  <div class="field">
+                    <!--<input type="tel" name="phone" placeholder="1-(555)-555-5555" required>-->
+                    <input id="phone" name="phone" type="text" size="15" onblur="isPhoneOk(this, document.getElementById('phone_help'))" placeholder="Phone number"/>
+                    <span id='phone_help'></span>
+                  </div>
+                  <div class="field">
+                    <!--<input type="text" name="homeAdress" placeholder="Adress" required>-->
+                    <input id="street" name="homeAdress" type="text" size="30" onblur="isAddressOk(this, document.getElementById('street_help'))" placeholder="Home address"/>
+                    <span id='street_help'></span>
+                  </div>       
+                  <div class="field">
+                    <!--<input type="text" name="eMail" placeholder="Email">-->
+                    <input id="email" name="eMail" type="text" size="30" onblur="isEmailOk(this, document.getElementById('email_help'))" placeholder="Email"/>
+                    <span id='email_help'></span>
+                  </div>
+                  <div class="field">
+                    <input type="number" name="numberOfPersons" type="text" size="30" onblur="isQntOk(this, document.getElementById('qnt_help'))" placeholder="Number of persons"/>
+                    <span id='qnt_help'></span>
+                  </div>
+                  <div class="field">
+                    <input name="remarks" type="text" type="text" size="30" onblur="isRemarksOk(this, document.getElementById('remarks_help'))" placeholder="Remarks"/>
+                    <span id='remarks_help'></span>
+                  </div>
+                </div><!--/fields-group-->
+              </form>
+            </div><!--/one-inner-->
+          </section><!--/one-->
 
-          <div id="centerColumn">
-            <h3>Order information</h3>
-            <form name="forSelect" action="" method="" autocomplete="off">
-              <div>
-                <label for="dishes-select">Select dish
-                  <select id="dishes-select" name="help">   
-                  <option>Select dish</option>
-                </select>
-                </label>
-              </div>
-            </form>
-            <ol id="selected-dish-name"></ol>
-            <div id="order-data"></div>
-          </div><!--/centerColumn-->
+          <div class="space"></div>
+          <section id="two">
+            <div class="two-inner">
+              <div class="two-head">
+                <h3>Order information</h3>
+                <hr>
+                <p>Choose item</p>
+              </div><!--/two-head-->
+              <form name="forSelect" action="" method="" autocomplete="off">
+                <div class="fields-group-center">
+                  <div class="field">
+                    <select id="dishes-select" name="help">   
+                    <option>Select dish</option>
+                  </select>
+                  </div>
+                </div>
+              </form>
+              <ol id="selected-dish-name"></ol>
+              <div id="order-data"></div>
+              <div class="button">
+                <button>Ready</button>
+              </div><!--button-->
+            </div><!--/two-inner-->
+          </section><!--/section-two-->
 
-          <div id="rightColumn">
-            <h3>Order overview</h3>
-            <div class="rightColumn-inner">
+          <div class="space"></div>
+          <section id="three">
+            <!--<h3>Order overview</h3>-->
+            <div class="three-inner">
               <div id="modal-3"></div>
               <div id="modal-4"></div>
-            </div><!--/rightColumn-inner-->
-          </div><!--/rightColumn-->
+            </div><!--/three-inner-->
+          </section><!--/section-tree-->
 
         </div><!--container-inner-->  
       </div><!--/container-->

@@ -1,0 +1,88 @@
+/*-section-one-*/
+
+#one {
+  width: 600px;
+  height: 550px;
+  margin: 0 auto;
+  box-shadow: 0px 3px 5px 0 rgba(174,174,174,0.5);
+  background-color: #fff;
+}
+
+.one-inner {
+  width: 362px;
+  height: 487px;
+  padding: 35px 44px 40px 44px;
+  margin: 0 auto;
+}
+
+.one-head {
+  width: 362px;
+  height: 102px;
+  padding-bottom: 18px;
+}
+
+.one-head p {
+  text-align: center;
+}
+
+#one form {
+  width: 362px;
+  height: 298px;
+}
+
+.fields-group {
+  width: 362px;
+  height: 192px;
+}
+
+.field {
+  width: 362px;
+  height: 33px;
+  margin-top: 20px;
+}
+
+#one input {
+  font-size: 15px;
+  width: 338px;
+  height: 20px;
+  padding: 7px 10px 6px 10px;
+  line-height: 20px;
+}
+
+/*-/section-one-*/
+
+input:focus, select:focus,
+input:hover, select:hover {
+  border: 3px solid #555;
+}
+
+span {
+  font-size: 13px;
+  line-height: 18px;
+  color: #FF9966;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
